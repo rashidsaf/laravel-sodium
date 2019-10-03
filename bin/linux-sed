@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+set -eu
+
+ROOT="$( cd "$( dirname "$0" )/../" && pwd )"
+
+. "${ROOT}"/bin/lib/tty.sh
+. "${ROOT}"/docker/lib/images.sh
+
+docker run -i$TTY $ALPINE_IMAGE sed "$@"
