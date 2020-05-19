@@ -37,4 +37,12 @@ interface SodiumService
      * @throws DecryptException
      */
     public function decrypt(string $message, string $key = null): string;
+
+    /**
+     * Decrypt the value using a nonce or null on failure.
+     *
+     * @param string $value the value to decrypt
+     * @param string $nonce The base64 encoded nonce
+     */
+    public function decryptValueByNonce(string $value, string $nonce): ?string;
 }
