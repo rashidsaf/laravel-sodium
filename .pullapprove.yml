@@ -19,3 +19,18 @@ pullapprove_conditions:
   - condition: "state == 'open'"
     unmet_status: failure
     explanation: "PR must be open to be reviewed"
+groups:
+  min_global_approvals:
+    conditions:
+      - "'dependencies' not in labels"
+    labels:
+      pending: ❐ Review
+      approved: ✓ Review
+      rejected: ✘ Review
+    reviews:
+      required: 3
+      request: 3
+      request_order: random
+    reviewers:
+      teams:
+        - crumpet-tenured-devs
